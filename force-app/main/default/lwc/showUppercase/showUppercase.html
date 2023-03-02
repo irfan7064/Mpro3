@@ -1,0 +1,25 @@
+<template>
+    <lightning-card onload={handleload}>
+
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Enter some text" onchange={handleInputChange}></lightning-input>
+            <h2>{nl}</h2>
+        </div>
+
+    </lightning-card>
+
+    <lightning-card onload={handleload}>
+
+       <template iterator:it={alist}>
+        <div key={it.value.Id}>
+         <p> {it.value.Id}  :{it.value.name}</p>
+
+        </div>
+
+
+       </template>
+
+    </lightning-card>
+       
+       
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Display the Contacts based on Account Name in LWC" >
+        <div class="slds slds-p-horizontal--medium">
+         <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <lightning-Input type="search" placeholder="Search..." value={accountName}
+                 name="accountName" class="accountName" onchange={handleChangeAccName}></lightning-input>                 
+             </div>
+             <div class="slds-col slds-size_6-of-12 slds-m-top--medium" style="margin-top: 19px; 
+             margin-left: 10px;">                 
+                    <lightning-button label="Search Active Contacts" variant="brand" 
+                    onclick={handleAccountSearch} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+                </br>
+                <lightning-button label="Search InActive Contacts" variant="brand" 
+                    onclick={handleAccountSearch2} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+             </div>
+         </div>
+        </div>
+                 <template if:true={varShow}>
+    
+                <c-display-contacts-child search-account-name={currentAccountName}
+                vardecision={varpardecison}  >
+                </c-display-contacts-child>
+                 </template>
+   
+    </lightning-card>
+    <!--   ongetparentaccs={handleparentssearch} -->>
+
+    
+    
+
+   
+
+
+
+
+
+
+</template>

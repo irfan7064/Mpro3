@@ -1,0 +1,79 @@
+<template>
+    <lightning-card title="Display the Contacts based on Account Name in LWC" >
+        <div class="slds slds-p-horizontal--medium">
+         <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <lightning-Input type="search" placeholder="Search..." value={accountName}
+                 name="accountName" class="accountName" onchange={handleChangeAccName}></lightning-input>                 
+             </div>
+             <div class="slds-col slds-size_6-of-12 slds-m-top--medium" style="margin-top: 19px; 
+             margin-left: 10px;">                 
+                    <lightning-button label="Search Active Contacts" variant="brand" 
+                    onclick={handleAccountSearch} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+                </br>
+                <lightning-button label="Search InActive Contacts" variant="brand" 
+                    onclick={handleAccountSearch2} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+             </div>
+         </div>
+        </div>
+
+        <template if:true={varShowCase}>
+            <div class="slds-m-around_x-small">
+                <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold;">
+                    Displaying cases Records based on Account Name(Datatable) </h2>
+            <h1>cases of {currentAccountName}</h1>
+           <lightning-datatable class="slds-max-medium-table_stacked" key-field="Id" data={data1} 
+                 columns={columns} hide-checkbox-column=true >
+            </lightning-datatable>
+           
+        </div>
+
+        <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold;">
+            Displaying cases Records based on Account Name(table) </h2>
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1"
+           cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+              <thead>
+                  <tr>
+                      <th>case num</th>
+                      <th>account name</th>
+                 </tr>
+              </thead>
+              <tbody>
+                  <template for:each={data1} for:item="conItem">
+                      <tr key={conItem.Id}>
+                          <td>{conItem.CaseNumber}</td>
+                         <td>{conItem.Account.Name}</td>
+                      </tr>
+                  </template>
+              </tbody>
+          </table>
+
+
+    </template>
+            </br>
+            </br>
+
+        
+                 <template if:true={varShow}>
+    
+                <c-achild search-account-name={currentAccountName}
+                vardecision={varpardecison} ongetparentaccs={handlecasegen}>
+                </c-achild>
+                 </template>
+
+                
+           
+
+
+
+
+
+
+
+
+
+
+    </lightning-card>
+</template>

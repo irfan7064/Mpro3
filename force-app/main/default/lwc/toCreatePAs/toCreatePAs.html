@@ -1,0 +1,30 @@
+<template>
+            <lightning-card title="List of Employees with this Project Skill " icon-name="custom:custom63">
+                <lightning-combobox
+                    name="contacts"
+                    label="Employees"
+                    placeholder="Choose Employee"
+                    value={value}
+                    onchange={handleKeyChange}
+                    options={statusOptions}>
+                </lightning-combobox>
+            <br/>
+                <lightning-button variant="brand" 
+                label="Create Assignment with the Above Employee" 
+                onclick={handleSearch} class="slds-m-left_x-small">
+                </lightning-button>
+
+            </lightning-card>
+
+  <!--lightning-record-form object-api-name="Project_Assignment__c" record-id={strRecordId}
+            columns="2" mode="edit" fields={arrayFields}></lightning-record-form-->
+
+            <!--lightning-record-form
+            object-api-name="Project_Assignment__c"
+            fields={myFields}
+            onsuccess={handleAccountCreated}>
+            </lightning-record-form-->
+
+
+       
+</template>

@@ -1,0 +1,13 @@
+
+<template>
+    
+
+    <h2>Account Name :- <span><strong>{searchAccountName}</strong></span></h2><br/> 
+          
+      <lightning-datatable class="slds-max-medium-table_stacked" key-field="Id" data={records} 
+      columns={columns}  onrowaction={handleactionone} 
+      hide-checkbox-column="true"  >
+      </lightning-datatable>
+
+
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <h2>Account Name :- <span><strong>{searchAccountName}</strong></span></h2><br/> 
+    {dataNotFound}
+    <lightning-card title="LWC Record ">
+      <lightning-datatable class="slds-max-medium-table_stacked" key-field="Id" data={records} 
+      columns={columns} hide-checkbox-column=true >
+      </lightning-datatable>
+    </br>
+  </br>
+
+    <lightning-button label="Search Cases for this Account" variant="neutral" 
+                    onclick={handleactionone} icon-name="utility:search" icon-position="left">
+      </lightning-button>
+
+
+
+
+    </lightning-card>
+</template>

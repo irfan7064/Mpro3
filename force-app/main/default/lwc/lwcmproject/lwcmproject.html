@@ -1,0 +1,103 @@
+<template>
+    
+    <lightning-card  class="slds-m-around_small" title="Current Project Info" >
+        <template class="slds-m-around_small" for:each={contacts.data} for:item="contact">
+            
+            <p  class="slds-m-around_small" key={contact.Id}> <b>Project Name</b></p>
+            <p  class="slds-m-around_small" key={contact.Id}> {contact.Project_Name_Assigned__c}</p>
+
+            <p class="slds-m-around_small" key={contact.Id}> <b>Project Start Date</b></p>
+            <p class="slds-m-around_small" key={contact.Id}> {contact.Project_Start_Date__c}</p>
+
+            <p class="slds-m-around_small" key={contact.Id}> <b>Project End Date</b></p>
+            <p class="slds-m-around_small" key={contact.Id}> {contact.Roll_off_Date__c}</p>
+        </template>
+    </lightning-card>
+
+
+    <template if:true={anyproperty}>
+      <lightning-card  class="slds-m-around_small" title="test one" >
+      <p > hi irfan for new life </p>
+      <lightning-input type="number" label ='give the best number'></lightning-input>
+      </lightning-card>
+    </template>
+
+
+
+    <lightning-card title="Draft Assignments" class="slds-m-around_small">
+        <ol>
+            <template for:each={draftProjects.data} for:item="dP">
+                <li class="slds-m-around_small" key={dP.Id}>{dP.Project_Name_Assigned__c}</li>
+            </template>
+        </ol>
+    </lightning-card>
+
+
+    
+        <lightning-card title="Completed Projects with Feedback" class="slds-m-around_small">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                  <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Key">Project Name</div>
+                    </th>
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Value">Feedback</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={compProjects.data} for:item="item" for:index="index">
+                    <tr key={item.id}>
+                        <th scope="col">
+                         {item.Project_Name_Assigned__c}
+                        </th>
+                        <th scope="col">
+                          {item.Feedback__c}
+                        </th>
+                    </tr>
+                </template>
+            </tbody>
+            </table>
+        </lightning-card>
+
+
+        
+
+
+           <lightning-card title="Skills Profiency" class="slds-m-around_small">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                  <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Key">Skill Name</div>
+                    </th>
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Value">Level</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Value">Relevant Experience</div>
+                      </th>
+                </tr>
+                </thead>
+            <tbody>
+                <template for:each={srecs.data} for:item="item" for:index="index">
+                    <tr key={item.id}>
+                        <th scope="col">
+                         {item.Skill_Name__c}
+                        </th>
+                        <th scope="col">
+                          {item.Level__c}
+                        </th>
+                        <th scope="col">
+                          {item.Relevant_Years_of_Experience__c}
+                        </th>
+                    </tr>
+                </template>
+            </tbody>
+            </table>
+        </lightning-card>
+
+       
+
+</template>

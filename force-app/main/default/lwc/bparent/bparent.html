@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Display the accounts based on activeness in LWC" >
+        <div class="slds slds-p-horizontal--medium">
+         <div class="slds-grid slds-wrap">
+            
+             <div class="slds-col slds-size_6-of-12 slds-m-top--medium" style="margin-top: 19px; 
+             margin-left: 10px;">                 
+                    <lightning-button label="Search Active accounts" variant="brand" 
+                    onclick={handleAccountSearch} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+                </br>
+                <lightning-button label="Search InActive accounts" variant="brand" 
+                    onclick={handleAccountSearch2} icon-name="utility:search" icon-position="right">
+                </lightning-button>
+             </div>
+         </div>
+        </div>
+
+        <template if:true={varShowCase}>
+            <div class="slds-m-around_x-small">
+                <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold;">
+                    Displaying cases Records based on Account Name(Datatable) </h2>
+            <h1>cases of {sKey}</h1>
+           <lightning-datatable class="slds-max-medium-table_stacked" key-field="Id" data={data1} 
+                 columns={columns} hide-checkbox-column=true >
+            </lightning-datatable>
+        </br>
+
+            <h1>If you want to create case for {sKey} , then click this button</h1>
+            <lightning-button label="create case" variant="brand" 
+                    onclick={handlecasecreation} icon-name="utility:search" icon-position="right">
+            </lightning-button>
+           
+            </div>
+            <h1>Trial test</h1>
+            <lightning-button label="chatter1" variant="brand" 
+                    onclick={handlecasecreation1} icon-name="utility:search" icon-position="right">
+            </lightning-button>
+        </br>    
+        <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold;">
+            Displaying cases Records based on Account Name(table) </h2>
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1"
+           cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+              <thead>
+                  <tr>
+                      <th>case num</th>
+                      <th>account name</th>
+                 </tr>
+              </thead>
+              <tbody>
+                  <template for:each={data1} for:item="conItem">
+                      <tr key={conItem.Id}>
+                          <td>{conItem.CaseNumber}</td>
+                         <td>{conItem.Account.Name}</td>
+                      </tr>
+                  </template>
+              </tbody>
+          </table>
+
+
+    </template>
+            </br>
+            </br>
+
+        
+                 <template if:true={varShow}>
+    
+                <c-bchild vardecision={varpardecison} ongetparentaccs={handlecasegen}>
+                </c-bchild>
+                 </template>
+
+    </lightning-card>
+</template>

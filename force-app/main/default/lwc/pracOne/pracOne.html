@@ -1,0 +1,17 @@
+<template>
+
+    <lightning-card onload={handleload}>    
+    <lightning-record-view-form object-api-name="Opportunity" record-id={id1}>
+
+            <lightning-output-field field-name={optyName}></lightning-output-field>
+            <lightning-output-field field-name={optyAmount}></lightning-output-field>
+            <lightning-output-field field-name={optyType}></lightning-output-field>
+    
+            </lightning-record-view-form>
+    </lightning-card>
+    
+    <lightning-card>
+    <c-pchild accid={id2}></c-pchild>
+    </lightning-card>
+
+</template>

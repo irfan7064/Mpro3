@@ -1,0 +1,18 @@
+<template>
+    <lightning-button variant="brand" label="Show Active Children" title="Primary action"
+     onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+        <!-- Brand outline variant: Identifies the primary action in a group of buttons, but has a lighter look -->
+        <lightning-button variant="brand-outline" label="Show Inactive Children" title="Primary action with lighter look" 
+        onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+        <!-- Destructive variant: Identifies a potentially negative action -->
+
+        <template if:true={showNewAcreComponent}>
+            <c-childone ></c-childone>
+        </template>
+
+
+
+
+</template>
